@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SatisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AltAltKategoriler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AltAltKategoriAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AltKategoriNo" Type="Int32" Nullable="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AltKategoriler" Relationship="Self.FK_AltAltKategoriler_AltKategoriler" FromRole="AltAltKategoriler" ToRole="AltKategoriler" />
+    <NavigationProperty Name="Bedenler" Relationship="Self.FK_Bedenler_AltAltKategoriler" FromRole="AltAltKategoriler" ToRole="Bedenler" />
+    <NavigationProperty Name="Renkler" Relationship="Self.FK_Renkler_AltAltKategoriler" FromRole="AltAltKategoriler" ToRole="Renkler" />
+  </EntityType>
+  <EntityType Name="AltKategoriler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AltKategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KategoriNo" Type="Int32" Nullable="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AltAltKategoriler" Relationship="Self.FK_AltAltKategoriler_AltKategoriler" FromRole="AltKategoriler" ToRole="AltAltKategoriler" />
+    <NavigationProperty Name="Kategoriler" Relationship="Self.FK_AltKategoriler_Kategoriler" FromRole="AltKategoriler" ToRole="Kategoriler" />
+  </EntityType>
+  <EntityType Name="Bedenler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BedenAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AltAltKategoriNo" Type="Int32" Nullable="false" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AltAltKategoriler" Relationship="Self.FK_Bedenler_AltAltKategoriler" FromRole="Bedenler" ToRole="AltAltKategoriler" />
+  </EntityType>
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AltKategoriler" Relationship="Self.FK_AltKategoriler_Kategoriler" FromRole="Kategoriler" ToRole="AltKategoriler" />
+    <NavigationProperty Name="Urunler" Relationship="Self.FK_Urunler_Kategoriler" FromRole="Kategoriler" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="Renkler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AltAltKategoriNo" Type="Int32" Nullable="false" />
+    <Property Name="RenkAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AltAltKategoriler" Relationship="Self.FK_Renkler_AltAltKategoriler" FromRole="Renkler" ToRole="AltAltKategoriler" />
+  </EntityType>
+  <EntityType Name="SatisDetaylari">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SatisNo" Type="Int32" Nullable="false" />
+    <Property Name="UrunNo" Type="Int32" Nullable="false" />
+    <Property Name="Adet" Type="Int32" Nullable="false" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Tutar" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Satislar" Relationship="Self.FK_SatisDetaylari_Satislar" FromRole="SatisDetaylari" ToRole="Satislar" />
+    <NavigationProperty Name="Urunler" Relationship="Self.FK_SatisDetaylari_Urunler" FromRole="SatisDetaylari" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="Satislar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UyeNo" Type="Int32" Nullable="false" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TeslimTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ToplamMiktar" Type="Int32" Nullable="false" />
+    <Property Name="ToplamTutar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="OdemeSekli" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TaksitSayisi" Type="Int32" Nullable="false" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="SatisDetaylari" Relationship="Self.FK_SatisDetaylari_Satislar" FromRole="Satislar" ToRole="SatisDetaylari" />
+    <NavigationProperty Name="Uyeler" Relationship="Self.FK_Satislar_Uyeler" FromRole="Satislar" ToRole="Uyeler" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunKodu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UrunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UrunKategoriNo" Type="Int32" Nullable="false" />
+    <Property Name="UrunAltKategoriNo" Type="Int32" Nullable="false" />
+    <Property Name="UrunAltAltKategoriNo" Type="Int32" Nullable="false" />
+    <Property Name="Miktar" Type="Int32" Nullable="false" />
+    <Property Name="UrunFiyat" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="UrunAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UrunResim1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UrunResim2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UrunRenkNo" Type="Int32" Nullable="false" />
+    <Property Name="UrunBedenNo" Type="Int32" Nullable="false" />
+    <Property Name="SezonMu" Type="Boolean" Nullable="false" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kategoriler" Relationship="Self.FK_Urunler_Kategoriler" FromRole="Urunler" ToRole="Kategoriler" />
+    <NavigationProperty Name="SatisDetaylari" Relationship="Self.FK_SatisDetaylari_Urunler" FromRole="Urunler" ToRole="SatisDetaylari" />
+  </EntityType>
+  <EntityType Name="Uyeler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Admin" Type="Boolean" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TCKimlikNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Il" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Ilce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Silindi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Satislar" Relationship="Self.FK_Satislar_Uyeler" FromRole="Uyeler" ToRole="Satislar" />
+  </EntityType>
+  <Association Name="FK_AltAltKategoriler_AltKategoriler">
+    <End Role="AltKategoriler" Type="Self.AltKategoriler" Multiplicity="1" />
+    <End Role="AltAltKategoriler" Type="Self.AltAltKategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AltKategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AltAltKategoriler">
+        <PropertyRef Name="AltKategoriNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bedenler_AltAltKategoriler">
+    <End Role="AltAltKategoriler" Type="Self.AltAltKategoriler" Multiplicity="1" />
+    <End Role="Bedenler" Type="Self.Bedenler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AltAltKategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bedenler">
+        <PropertyRef Name="AltAltKategoriNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Renkler_AltAltKategoriler">
+    <End Role="AltAltKategoriler" Type="Self.AltAltKategoriler" Multiplicity="1" />
+    <End Role="Renkler" Type="Self.Renkler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AltAltKategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Renkler">
+        <PropertyRef Name="AltAltKategoriNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AltKategoriler_Kategoriler">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="1" />
+    <End Role="AltKategoriler" Type="Self.AltKategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AltKategoriler">
+        <PropertyRef Name="KategoriNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_Kategoriler">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="UrunKategoriNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SatisDetaylari_Satislar">
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="1" />
+    <End Role="SatisDetaylari" Type="Self.SatisDetaylari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satislar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SatisDetaylari">
+        <PropertyRef Name="SatisNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SatisDetaylari_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+    <End Role="SatisDetaylari" Type="Self.SatisDetaylari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="SatisDetaylari">
+        <PropertyRef Name="UrunNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satislar_Uyeler">
+    <End Role="Uyeler" Type="Self.Uyeler" Multiplicity="1" />
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uyeler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Satislar">
+        <PropertyRef Name="UyeNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SatisEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AltAltKategoriler" EntityType="Self.AltAltKategoriler" />
+    <EntitySet Name="AltKategoriler" EntityType="Self.AltKategoriler" />
+    <EntitySet Name="Bedenler" EntityType="Self.Bedenler" />
+    <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+    <EntitySet Name="Renkler" EntityType="Self.Renkler" />
+    <EntitySet Name="SatisDetaylari" EntityType="Self.SatisDetaylari" />
+    <EntitySet Name="Satislar" EntityType="Self.Satislar" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" />
+    <EntitySet Name="Uyeler" EntityType="Self.Uyeler" />
+    <AssociationSet Name="FK_AltAltKategoriler_AltKategoriler" Association="Self.FK_AltAltKategoriler_AltKategoriler">
+      <End Role="AltKategoriler" EntitySet="AltKategoriler" />
+      <End Role="AltAltKategoriler" EntitySet="AltAltKategoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bedenler_AltAltKategoriler" Association="Self.FK_Bedenler_AltAltKategoriler">
+      <End Role="AltAltKategoriler" EntitySet="AltAltKategoriler" />
+      <End Role="Bedenler" EntitySet="Bedenler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Renkler_AltAltKategoriler" Association="Self.FK_Renkler_AltAltKategoriler">
+      <End Role="AltAltKategoriler" EntitySet="AltAltKategoriler" />
+      <End Role="Renkler" EntitySet="Renkler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AltKategoriler_Kategoriler" Association="Self.FK_AltKategoriler_Kategoriler">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="AltKategoriler" EntitySet="AltKategoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_Kategoriler" Association="Self.FK_Urunler_Kategoriler">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SatisDetaylari_Satislar" Association="Self.FK_SatisDetaylari_Satislar">
+      <End Role="Satislar" EntitySet="Satislar" />
+      <End Role="SatisDetaylari" EntitySet="SatisDetaylari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SatisDetaylari_Urunler" Association="Self.FK_SatisDetaylari_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="SatisDetaylari" EntitySet="SatisDetaylari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satislar_Uyeler" Association="Self.FK_Satislar_Uyeler">
+      <End Role="Uyeler" EntitySet="Uyeler" />
+      <End Role="Satislar" EntitySet="Satislar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

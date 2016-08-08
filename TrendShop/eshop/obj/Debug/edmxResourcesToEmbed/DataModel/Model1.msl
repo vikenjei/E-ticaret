@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SatisModelStoreContainer" CdmEntityContainer="SatisEntities5">
+    <EntitySetMapping Name="AltAltKategoriler">
+      <EntityTypeMapping TypeName="SatisModel.AltAltKategoriler">
+        <MappingFragment StoreEntitySet="AltAltKategoriler">
+          <ScalarProperty Name="AltAltKategoriId" ColumnName="AltAltKategoriId" />
+          <ScalarProperty Name="AltAltKategoriAdi" ColumnName="AltAltKategoriAdi" />
+          <ScalarProperty Name="AltKategoriNo" ColumnName="AltKategoriNo" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AltKategoriler">
+      <EntityTypeMapping TypeName="SatisModel.AltKategoriler">
+        <MappingFragment StoreEntitySet="AltKategoriler">
+          <ScalarProperty Name="AltKategoriId" ColumnName="AltKategoriId" />
+          <ScalarProperty Name="AltKategoriAd" ColumnName="AltKategoriAd" />
+          <ScalarProperty Name="KategoriNo" ColumnName="KategoriNo" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoriler">
+      <EntityTypeMapping TypeName="SatisModel.Kategoriler">
+        <MappingFragment StoreEntitySet="Kategoriler">
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+          <ScalarProperty Name="KategoriKucukResim" ColumnName="KategoriKucukResim" />
+          <ScalarProperty Name="KategoriBuyukResim" ColumnName="KategoriBuyukResim" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatisDetaylari">
+      <EntityTypeMapping TypeName="SatisModel.SatisDetaylari">
+        <MappingFragment StoreEntitySet="SatisDetaylari">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SatisNo" ColumnName="SatisNo" />
+          <ScalarProperty Name="UrunNo" ColumnName="UrunNo" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Satislar">
+      <EntityTypeMapping TypeName="SatisModel.Satislar">
+        <MappingFragment StoreEntitySet="Satislar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UyeNo" ColumnName="UyeNo" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="TeslimTarihi" ColumnName="TeslimTarihi" />
+          <ScalarProperty Name="ToplamMiktar" ColumnName="ToplamMiktar" />
+          <ScalarProperty Name="ToplamTutar" ColumnName="ToplamTutar" />
+          <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
+          <ScalarProperty Name="TaksitSayisi" ColumnName="TaksitSayisi" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slaytlar">
+      <EntityTypeMapping TypeName="SatisModel.Slaytlar">
+        <MappingFragment StoreEntitySet="Slaytlar">
+          <ScalarProperty Name="SlaytId" ColumnName="SlaytId" />
+          <ScalarProperty Name="SlaytResimYolu" ColumnName="SlaytResimYolu" />
+          <ScalarProperty Name="SlaytUstYazi" ColumnName="SlaytUstYazi" />
+          <ScalarProperty Name="SlaytOrtaYazi" ColumnName="SlaytOrtaYazi" />
+          <ScalarProperty Name="SlaytAltYazi" ColumnName="SlaytAltYazi" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SatisModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunler">
+      <EntityTypeMapping TypeName="SatisModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+          <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+          <ScalarProperty Name="UrunKategoriNo" ColumnName="UrunKategoriNo" />
+          <ScalarProperty Name="UrunAltKategoriNo" ColumnName="UrunAltKategoriNo" />
+          <ScalarProperty Name="UrunAltAltKategoriNo" ColumnName="UrunAltAltKategoriNo" />
+          <ScalarProperty Name="UrunMiktar" ColumnName="UrunMiktar" />
+          <ScalarProperty Name="UrunFiyat" ColumnName="UrunFiyat" />
+          <ScalarProperty Name="UrunAciklama" ColumnName="UrunAciklama" />
+          <ScalarProperty Name="UrunResim1" ColumnName="UrunResim1" />
+          <ScalarProperty Name="UrunResim2" ColumnName="UrunResim2" />
+          <ScalarProperty Name="UrunResim3" ColumnName="UrunResim3" />
+          <ScalarProperty Name="UrunResim4" ColumnName="UrunResim4" />
+          <ScalarProperty Name="UrunBedenAdi" ColumnName="UrunBedenAdi" />
+          <ScalarProperty Name="UrunRenkAdi" ColumnName="UrunRenkAdi" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uyeler">
+      <EntityTypeMapping TypeName="SatisModel.Uyeler">
+        <MappingFragment StoreEntitySet="Uyeler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="TCKimlikNo" ColumnName="TCKimlikNo" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Il" ColumnName="Il" />
+          <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
